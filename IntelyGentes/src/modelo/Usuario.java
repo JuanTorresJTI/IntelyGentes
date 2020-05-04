@@ -8,6 +8,7 @@ public class Usuario {
 	private String contrasena;
 	private String email;
 	private boolean superuser;
+	//anadir date fecha_nacimiento
 	
 	public Usuario(String dni, String nombre, String apellidos, String telefono, String contrasena, String email, boolean superuser) {
 		this.dni = dni ;
