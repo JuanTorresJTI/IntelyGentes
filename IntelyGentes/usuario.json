@@ -1,0 +1,29 @@
+[
+{
+  "dni": "39042568E",
+  "nombre": "Sofia" ,
+  "apellidos": "Hernandez Martinez",
+  "telefono": "683658274",
+  "contrasena": "0cc175b9c0f1b6a831c399e269772661",
+  "email": "sofia@gmail.com",
+  "superuser": false
+},
+{
+  "dni": "62544518C",
+  "nombre": "Maria",
+  "apellidos": "Lopez Fernandez",
+  "telefono": "659284953",
+  "contrasena": "0cc175b9c0f1b6a831c399e269772661",
+  "email": "maria@gmail.com",
+  "superuser": false
+},
+{
+  "dni": "53222466Y",
+  "nombre": "Juan",
+  "apellidos": "Perez Rodriguez",
+  "telefono": "692485713",
+  "contrasena": "0cc175b9c0f1b6a831c399e269772661",
+  "email": "juan@gmail.com",
+  "superuser": true
+}
+]
