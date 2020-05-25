@@ -11,7 +11,7 @@ public class VistaPrincipal {
 
 	public void menu() {
 		Scanner in = new Scanner(System.in);
-		String opcion = "";
+		int opcion = 0;
 		
 		System.out.println("---------------------------------------------------------");
 		System.out.println("Escoge una opcion (1-4): ");
@@ -20,9 +20,9 @@ public class VistaPrincipal {
 		System.out.println("3) Eliminar Producto");
 		System.out.println("4) Salir");
 		System.out.println("---------------------------------------------------------/n");
-		opcion = in.nextLine();
+		opcion = in.nextInt();
 		
-		switch (Integer.parseInt(opcion)) {
+		switch (opcion) {
 		case 1:
 			mostrarProductos();
 			break;
