@@ -146,7 +146,7 @@ public class Main {
 				System.out.println("Nombre: " + usuario.getNombre());
 				System.out.println("Apellidos: " + usuario.getApellidos());
 				System.out.println("Email: " + usuario.getEmail());
-				System.out.println("Teléfono" + usuario.getTelefono());
+				System.out.println("Teléfono: " + usuario.getTelefono());
 				System.out.println("---------------------------------------------------------");
 			}
 		}
