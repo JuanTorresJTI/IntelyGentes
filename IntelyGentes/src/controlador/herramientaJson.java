@@ -84,8 +84,8 @@ public class herramientaJson {
 		precio = in.nextLine();
 		System.out.println("------------------------------------");
 
-		File tmpDir = new File("./productos");
-		String fileName = "productos";
+		File tmpDir = new File("./productos.csv");
+		String fileName = "productos.csv";
 		if (tmpDir.exists()) {
 			try (FileWriter writer = new FileWriter(fileName, true)) {
 				writer.append(Integer.toString(id) + ", " + nombreProducto + ", " + descripcion + ", " + tipoPrenda
@@ -113,7 +113,7 @@ public class herramientaJson {
 	}
 
 	public static void mostrarProductos() {
-		List<String[]> productos = leer(",", "productos");
+		List<String[]> productos = leer(",", "productos.csv");
 		System.out.println("*******************************************************************");
 		for (String[] s : productos) {
 			System.out.print("|");
