@@ -62,7 +62,7 @@ public class herramientaJson {
 
 	public static void escribirFicherCSV(String usuario) {
 		String nombreProducto, descripcion, tipoPrenda, marca, precio;
-		int id = (int) Math.random() * 1000000;
+		int id = (int)(Math.round(Math.random() * 1000000));
 
 		Scanner in = new Scanner(System.in);
 		System.out.println("Introduce los valores de tu producto");
