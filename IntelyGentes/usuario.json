@@ -33,6 +33,6 @@
     "telefono": "667875591",
     "contrasena": "1234",
     "email": "juanti98@gmail.com",
-    "superuser": false
+    "superuser": true
   }
 ]

@@ -1,16 +1,9 @@
 package main;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 import java.util.Scanner;
 
@@ -30,7 +23,7 @@ public class Main {
 
 		boolean repetir = true;
 		while (repetir) {
-			
+
 			System.out.println(
 					"Qué operación desea realizar? " + "\n\t1.Iniciar sesión" + "\n\t2.Registrarse" + "\n\t3.Salir");
 			String respuesta = in.nextLine();
@@ -71,7 +64,8 @@ public class Main {
 		String contrasena = teclado.nextLine();
 		System.out.println("Ha creado una cuenta correctamente.");
 
-		Usuario usuario1 = new Usuario(dni, nombre, apellido, telefono, contrasena, mail, false);
+		String contrasenaCifrada = getMd5(contrasena);
+		Usuario usuario1 = new Usuario(dni, nombre, apellido, telefono, contrasenaCifrada, mail, false);
 		herramientaJson.guardarUsuarios(usuario1);
 	}
 
@@ -87,9 +81,11 @@ public class Main {
 
 			System.out.println("Introduzca su contraseña: ");
 			String contrasenaUsuario = in.nextLine();
+			
+			String contrasenaCifrada = getMd5(contrasenaUsuario);
 
 			user = herramientaJson.getUsuario(correoUsuario);
-			if (user.getContrasena().equals(contrasenaUsuario) && user != null) {
+			if (user.getContrasena().equals(contrasenaCifrada) && user != null) {
 				System.out.println("Bienvenido");
 				if (user.isSuperuser()) {
 					ventanaSuperUser(user.getNombre(), user.getApellidos());
@@ -184,4 +180,29 @@ public class Main {
 		} while (salir);
 	}
 
+	// funcion hash recibe contrasena y devuelve contrasena encriptado
+	public static String getMd5(String input) {
+		try {
+
+			// Static getInstance method is called with hashing MD5
+			MessageDigest md = MessageDigest.getInstance("MD5");
+
+			// digest() method is called to calculate message digest
+			// of an input digest() return array of byte
+			byte[] messageDigest = md.digest(input.getBytes());
+
+			// Convert byte array into signum representation
+			BigInteger no = new BigInteger(1, messageDigest);
+
+			// Convert message digest into hex value
+			String hashtext = no.toString(16);
+			while (hashtext.length() < 32) {
+				hashtext = "0" + hashtext;
+			}
+
+			return hashtext;
+		} catch (NoSuchAlgorithmException e) {
+			throw new RuntimeException(e);
+		}
+	}
 }
