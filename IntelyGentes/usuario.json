@@ -34,5 +34,14 @@
     "contrasena": "81dc9bdb52d04dc20036dbd8313ed055",
     "email": "juanti98@gmail.com",
     "superuser": true
+  },
+  {
+    "dni": "12341234",
+    "nombre": "Pepito",
+    "apellidos": "Gimenez",
+    "telefono": "123412341234",
+    "contrasena": "81dc9bdb52d04dc20036dbd8313ed055",
+    "email": "pepito@gmail.com",
+    "superuser": false
   }
 ]
