@@ -58,7 +58,7 @@ public class herramientaJson {
 
 	public static void escribirFicherCSV(String usuario) {
 		String nombreProducto, descripcion, tipoPrenda, marca, precio;
-		int id = (int)(Math.round(Math.random() * 1000000));
+		int id = (int) (Math.round(Math.random() * 1000000));
 
 		Scanner in = new Scanner(System.in);
 		System.out.println("Introduce los valores de tu producto");
@@ -96,6 +96,7 @@ public class herramientaJson {
 			try (FileWriter writer = new FileWriter(fileName, true)) {
 				writer.append("ID, NombreProducto, Descripción, TipoPrenda, Marca, NombreVendedor, Precio");
 				writer.append(System.lineSeparator());
+				System.out.println("+" + pinta_caracter("-", 126) + "+");
 				writer.append(Integer.toString(id) + ", " + nombreProducto + ", " + descripcion + ", " + tipoPrenda
 						+ ", " + marca + ", " + usuario + ", " + precio);
 				writer.append(System.lineSeparator());
@@ -108,17 +109,57 @@ public class herramientaJson {
 		}
 	}
 
+	public static String pinta_caracter(String ch, int n) {
+		String caracter = ch;
+		for (int i = 0; i < n; i++) {
+			caracter += ch;
+		}
+		return caracter;
+	}
+	/*
+	 * public static void mostrarProductoss(String[][] datos) { List<String[]>
+	 * productos = leer(",", "productos"); int encolumnado = 30; int columnas =
+	 * datos[0].length; int filas = datos.length; System.out.println("filas:" +
+	 * filas + " columnas:" + columnas); System.out.println("+" +
+	 * pinta_caracter("-", 126) + "+"); for (int i = 0; i < filas; i++) { for (int j
+	 * = 0; j < columnas; j++) {
+	 * 
+	 * int numero_blancos = encolumnado - datos[i][j].length();
+	 * 
+	 * System.out.print("|" + datos[i][j] + pinta_caracter(" ", numero_blancos)); }
+	 * System.out.println("|"); System.out.println("+" + pinta_caracter("-", 126) +
+	 * "+"); }
+	 * 
+	 * }
+	 */
+
 	public static void mostrarProductos() {
 		List<String[]> productos = leer(",", "productos.csv");
 		System.out.println("*******************************************************************");
 		for (String[] s : productos) {
 			System.out.print("|");
-			for (String p: s) {
+			for (String p : s) {
 				System.out.print(p + " | ");
+				// String [][] matriz= leer(",", "productos");
+				List<String[]> prod = leer(",", "productos");
+				int encolumnado = 15;
+				int n = (prod.get(0).length + 1) * encolumnado - 3;
+				System.out.println("+" + pinta_caracter("-", n) + "+");
+				for (int fila = 0; fila < prod.size(); fila++) {
+					String[] item = prod.get(fila);
+					for (int columna = 0; columna < item.length; columna++) {
+
+						int numero_blancos = encolumnado - item[columna].length();
+
+						System.out.print("|" + item[columna] + pinta_caracter(" ", numero_blancos));
+					}
+					System.out.println("|");
+					System.out.println("+" + pinta_caracter("-", n) + "+");
+
+				}
+
 			}
-			System.out.println();
 		}
-		System.out.println("*******************************************************************");
 	}
 
 	public static List<String[]> leer(String separator, String fileName) {

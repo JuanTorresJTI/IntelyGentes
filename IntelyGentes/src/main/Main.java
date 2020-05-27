@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import controlador.herramientaJson;
+import modelo.Productos;
 import modelo.Usuario;
 
 public class Main {
@@ -68,6 +69,9 @@ public class Main {
 		Usuario usuario1 = new Usuario(dni, nombre, apellido, telefono, contrasenaCifrada, mail, false);
 		herramientaJson.guardarUsuarios(usuario1);
 	}
+	
+	
+
 
 	public static void validarUsuario() {
 		Usuario user;
@@ -103,6 +107,7 @@ public class Main {
 	private static void ventanaSuperUser(String nombre, String apellidos) {
 		Scanner in = new Scanner(System.in);
 		ArrayList<Usuario> usuarios;
+		//Productos[][] productos=new Productos(apellidos, apellidos, apellidos, apellidos, apellidos, 0, 0);
 		boolean salir = true;
 		System.out.println("¡Bienvenido " + nombre + " " + apellidos + "!");
 		do {
