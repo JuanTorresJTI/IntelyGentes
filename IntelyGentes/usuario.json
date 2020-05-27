@@ -31,8 +31,8 @@
     "nombre": "Juan",
     "apellidos": "Torres",
     "telefono": "667875591",
-    "contrasena": "1234",
+    "contrasena": "81dc9bdb52d04dc20036dbd8313ed055",
     "email": "juanti98@gmail.com",
-    "superuser": false
+    "superuser": true
   }
 ]
