@@ -84,8 +84,8 @@ public class herramientaJson {
 		precio = in.nextLine();
 		System.out.println("------------------------------------");
 
-		File tmpDir = new File("./productos");
-		String fileName = "productos";
+		File tmpDir = new File("./productos.csv");
+		String fileName = "productos.csv";
 		if (tmpDir.exists()) {
 			try (FileWriter writer = new FileWriter(fileName, true)) {
 				writer.append(Integer.toString(id) + ", " + nombreProducto + ", " + descripcion + ", " + tipoPrenda
@@ -120,29 +120,9 @@ public class herramientaJson {
 		}
 		return caracter;
 	}
-	/*
-	public static void mostrarProductoss(String[][] datos) {
-		List<String[]> productos = leer(",", "productos");
-		int encolumnado = 30;
-		int columnas = datos[0].length;
-		int filas = datos.length;
-		System.out.println("filas:" + filas + " columnas:" + columnas);
-		System.out.println("+" + pinta_caracter("-", 126) + "+");
-		for (int i = 0; i < filas; i++) {
-			for (int j = 0; j < columnas; j++) {
-
-				int numero_blancos = encolumnado - datos[i][j].length();
-
-				System.out.print("|" + datos[i][j] + pinta_caracter(" ", numero_blancos));
-			}
-			System.out.println("|");
-			System.out.println("+" + pinta_caracter("-", 126) + "+");
-		}
-
-	}
-	*/
-
+	
 	public static void mostrarProductos() {
+
 		//String [][] matriz= leer(",", "productos");
 		List<String[]> productos = leer(",", "productos");
 		int encolumnado=15;
@@ -156,6 +136,7 @@ public class herramientaJson {
 				int numero_blancos = encolumnado - item[columna].length();
 
 				System.out.print("|" + item[columna] + pinta_caracter(" ", numero_blancos));
+
 			}
 			System.out.println("|");
 			System.out.println("+" + pinta_caracter("-", n) + "+");
