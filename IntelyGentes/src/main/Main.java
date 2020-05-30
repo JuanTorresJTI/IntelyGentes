@@ -63,11 +63,17 @@ public class Main {
 		String mail = teclado.nextLine();
 		System.out.print("\nIntroduzca una constraseña para su cuenta: ");
 		String contrasena = teclado.nextLine();
-		System.out.println("Ha creado una cuenta correctamente.");
 
 		String contrasenaCifrada = getMd5(contrasena);
-		Usuario usuario1 = new Usuario(dni, nombre, apellido, telefono, contrasenaCifrada, mail, false);
-		herramientaJson.guardarUsuarios(usuario1);
+		Usuario u = herramientaJson.getUsuario(mail);
+		if (u == null) {
+			Usuario usuario1 = new Usuario(dni, nombre, apellido, telefono, contrasenaCifrada, mail, false);
+			herramientaJson.guardarUsuarios(usuario1);
+			System.out.println("Ha creado una cuenta correctamente.");
+		}
+		else {
+			System.out.println("Este usuario ya esta registrado en nuestra aplicación.");
+		}
 	}
 	
 	
