@@ -93,7 +93,7 @@ public class herramientaJson {
 		System.out.println("------------------------------------");
 
 		File tmpDir = new File("IntelyGentes/productos.csv");
-		String fileName = "productos.csv";
+		String fileName = "IntelyGentes/productos.csv";
 		if (tmpDir.exists()) {
 			try (FileWriter writer = new FileWriter(fileName, true)) {
 				writer.append(Integer.toString(id) + ", " + nombreProducto + ", " + descripcion + ", " + tipoPrenda

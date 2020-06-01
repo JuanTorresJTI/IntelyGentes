@@ -43,5 +43,32 @@
     "contrasena": "81dc9bdb52d04dc20036dbd8313ed055",
     "email": "pepito@gmail.com",
     "superuser": false
+  },
+  {
+    "dni": "53813704Y",
+    "nombre": "Pepe",
+    "apellidos": "Martinez",
+    "telefono": "685647813",
+    "contrasena": "81dc9bdb52d04dc20036dbd8313ed055",
+    "email": "pepe@gmail.com",
+    "superuser": false
+  },
+  {
+    "dni": "53813704Z",
+    "nombre": "Raul",
+    "apellidos": "Gonzalez",
+    "telefono": "647581354",
+    "contrasena": "25d55ad283aa400af464c76d713c07ad",
+    "email": "raul.g@gmail.com",
+    "superuser": false
+  },
+  {
+    "dni": "578458134D",
+    "nombre": "Leticia",
+    "apellidos": "Garcia",
+    "telefono": "655847584",
+    "contrasena": "25d55ad283aa400af464c76d713c07ad",
+    "email": "leti@gmail.com",
+    "superuser": false
   }
 ]
