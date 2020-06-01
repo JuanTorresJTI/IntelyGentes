@@ -21,7 +21,7 @@ public class herramientaJson {
 	public static ArrayList<Usuario> lectorUsuarios() {
 		ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
 		try {
-			FileReader fr = new FileReader("usuario.json");
+			FileReader fr = new FileReader("IntelyGentes/usuario.json");
 			Gson gson = new Gson();
 			Type tipoListaUsuarios = new TypeToken<ArrayList<Usuario>>() {
 			}.getType();
@@ -60,7 +60,7 @@ public class herramientaJson {
 		ArrayList<Usuario> usuarios = lectorUsuarios();
 		usuarios.add(usuarioNuevo);
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		try (FileWriter writer = new FileWriter("usuario.json")) {
+		try (FileWriter writer = new FileWriter("IntelyGentes/usuario.json")) {
 			gson.toJson(usuarios, writer);
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -92,7 +92,7 @@ public class herramientaJson {
 		precio = in.nextLine();
 		System.out.println("------------------------------------");
 
-		File tmpDir = new File("./productos.csv");
+		File tmpDir = new File("IntelyGentes/productos.csv");
 		String fileName = "productos.csv";
 		if (tmpDir.exists()) {
 			try (FileWriter writer = new FileWriter(fileName, true)) {
@@ -130,7 +130,7 @@ public class herramientaJson {
 	}
 
 	public static void mostrarProductos() {
-		List<String[]> prod = leer(",", "productos.csv");
+		List<String[]> prod = leer(",", "IntelyGentes/productos.csv");
 		int encolumnado = 15;
 		int n = (prod.get(0).length + 1) * encolumnado - 3;
 		System.out.println("+" + pinta_caracter("-", n) + "+");
@@ -163,7 +163,7 @@ public class herramientaJson {
 
 	public static int contarProductos() {
 		int cantProd = 0;
-		List<String[]> prod = leer(",", "productos.csv");
+		List<String[]> prod = leer(",", "IntelyGentes/productos.csv");
 		for (int i = 0; i < prod.size(); i++) {
 			cantProd++;
 		}
@@ -172,7 +172,7 @@ public class herramientaJson {
 
 	public static double mediaProductos() {
 		double precioMedio = 0;
-		List<String[]> prod = leer(",", "productos.csv");
+		List<String[]> prod = leer(",", "IntelyGentes/productos.csv");
 		
 		for (int fila = 0; fila < prod.size(); fila++) {
 			String[] item = prod.get(fila);
