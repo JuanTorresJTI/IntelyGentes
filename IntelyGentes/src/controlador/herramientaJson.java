@@ -44,7 +44,18 @@ public class herramientaJson {
 		}
 		return u;
 	}
-
+	
+	public static int contarUsuarios() {
+		int cantUsuarios = 0;
+		ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+		usuarios = lectorUsuarios();
+		
+		for (int i = 0; i < usuarios.size(); i++) {
+			cantUsuarios++;
+		}
+		return cantUsuarios;
+	} 
+	
 	public static void guardarUsuarios(Usuario usuarioNuevo) {
 		ArrayList<Usuario> usuarios = lectorUsuarios();
 		usuarios.add(usuarioNuevo);
@@ -55,6 +66,7 @@ public class herramientaJson {
 			e.printStackTrace();
 		}
 	}
+	
 
 	public static void escribirFicherCSV(String usuario) {
 		String nombreProducto, descripcion, tipoPrenda, marca, precio;
@@ -147,5 +159,31 @@ public class herramientaJson {
 			e.printStackTrace();
 			return null;
 		}
+	}
+
+	public static int contarProductos() {
+		int cantProd = 0;
+		List<String[]> prod = leer(",", "productos.csv");
+		for (int i = 0; i < prod.size(); i++) {
+			cantProd++;
+		}
+		return cantProd;
+	}
+
+	public static double mediaProductos() {
+		double precioMedio = 0;
+		List<String[]> prod = leer(",", "productos.csv");
+		
+		for (int fila = 0; fila < prod.size(); fila++) {
+			String[] item = prod.get(fila);
+			for (int columna = 0; columna < item.length; columna++) {
+				if (columna == item.length - 1 && !(item[columna].toUpperCase().equals("PRECIO"))) {
+					precioMedio += Double.parseDouble(item[columna]);
+				}
+			}
+
+		}
+		precioMedio = precioMedio/prod.size();
+		return precioMedio;
 	}
 }

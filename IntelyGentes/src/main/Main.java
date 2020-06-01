@@ -3,6 +3,7 @@ package main;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import java.util.Scanner;
@@ -99,6 +100,15 @@ public class Main {
 				salir = false;
 			} else {
 				System.out.println("Usuario o contraseña incorrecta");
+				System.out.println("¿Quieres salir de la aplicación?");
+				System.out.println("1) Si\n2) No");
+				String respuesta = in.nextLine();
+				switch (respuesta) {
+				case "1":
+					salir = false;
+					
+					break;
+				}
 			}
 		} while (salir);
 
@@ -115,7 +125,8 @@ public class Main {
 			System.out.println("Escoge una opcion (1-3): ");
 			System.out.println("\t1) Mostrar Productos");
 			System.out.println("\t2) Mostrar Usuarios");
-			System.out.println("\t3) Salir");
+			System.out.println("\t3) Mostrar Estadisticas");
+			System.out.println("\t4) Salir");
 			System.out.println("---------------------------------------------------------");
 
 			String respuesta = in.nextLine();
@@ -128,6 +139,9 @@ public class Main {
 				mostarUsers(usuarios);
 				break;
 			case "3":
+				mostrarEstadisticas();
+				break;
+			case "4":
 				System.out.println("¡Hasta pronto!");
 				salir = false;
 				break;
@@ -137,6 +151,15 @@ public class Main {
 				break;
 			}
 		} while (salir);
+	}
+
+	private static void mostrarEstadisticas() {
+		System.out.println("---------------------------------------------------------");
+		System.out.println("Cantidad de usuarios: " + herramientaJson.contarUsuarios());
+		System.out.println("Cantidad de productos: " + herramientaJson.contarProductos());
+		DecimalFormat numberFormat = new DecimalFormat("#.00");
+		System.out.println("Media de precios: " + numberFormat.format(herramientaJson.mediaProductos()) + "€");
+		System.out.println("---------------------------------------------------------");
 	}
 
 	private static void mostarUsers(ArrayList<Usuario> usuarios) {
@@ -161,7 +184,7 @@ public class Main {
 			System.out.println("---------------------------------------------------------");
 			System.out.println("Escoge una opcion (1-3): ");
 			System.out.println("\t1) Mostrar Productos");
-			System.out.println("\t2) Meter Producto");
+			System.out.println("\t2) Introducir Producto");
 			System.out.println("\t3) Salir");
 			System.out.println("---------------------------------------------------------");
 
